@@ -46,24 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutBox.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AboutBox.Designer.cs">
-      <DependentUpon>AboutBox.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ChangPassword.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ChangPassword.Designer.cs">
-      <DependentUpon>ChangPassword.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LoginForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LoginForm.Designer.cs">
-      <DependentUpon>LoginForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,18 +54,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AboutBox.resx">
-      <DependentUpon>AboutBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ChangPassword.resx">
-      <DependentUpon>ChangPassword.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
-      <DependentUpon>LoginForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -92,9 +62,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -106,17 +74,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MongoDBHelper\DB.csproj">
+    <ProjectReference Include="..\MongoDBHelper\MongoDBHelper.csproj">
       <Project>{1EEB6C0F-69DB-480A-9EB0-A6F32A0781E8}</Project>
-      <Name>DB</Name>
+      <Name>MongoDBHelper</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UtilityHelper\Utility.csproj">
-      <Project>{7CA4BEFA-4729-4E05-B98A-1781E2732CB6}</Project>
-      <Name>Utility</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Brush Pen.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
