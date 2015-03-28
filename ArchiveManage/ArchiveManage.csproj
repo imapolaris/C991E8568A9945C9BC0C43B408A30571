@@ -79,9 +79,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MongoDBHelper\MongoDBHelper.csproj">
+    <ProjectReference Include="..\MongoDBHelper\DB.csproj">
       <Project>{1EEB6C0F-69DB-480A-9EB0-A6F32A0781E8}</Project>
-      <Name>MongoDBHelper</Name>
+      <Name>DB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UtilityHelper\Utility.csproj">
+      <Project>{7CA4BEFA-4729-4E05-B98A-1781E2732CB6}</Project>
+      <Name>Utility</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

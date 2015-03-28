@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace ArchiveManage
+namespace Mayo.ArchiveManage
 {
     public partial class MainForm : Form
     {
