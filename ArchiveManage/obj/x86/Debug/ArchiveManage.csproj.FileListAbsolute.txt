@@ -1,0 +1,11 @@
+F:\WORKW\C991E8568A9945C9BC0C43B408A30571\ArchiveManage\obj\x86\Debug\ArchiveManage.Properties.Resources.resources
+F:\WORKW\C991E8568A9945C9BC0C43B408A30571\ArchiveManage\obj\x86\Debug\ArchiveManage.csproj.GenerateResource.Cache
+F:\WORKW\C991E8568A9945C9BC0C43B408A30571\ArchiveManage\obj\x86\Debug\ArchiveManage.MainForm.resources
+F:\WORKW\C991E8568A9945C9BC0C43B408A30571\ArchiveManage\bin\Debug\ArchiveManage.exe
+F:\WORKW\C991E8568A9945C9BC0C43B408A30571\ArchiveManage\bin\Debug\ArchiveManage.pdb
+F:\WORKW\C991E8568A9945C9BC0C43B408A30571\ArchiveManage\bin\Debug\MongoDBHelper.dll
+F:\WORKW\C991E8568A9945C9BC0C43B408A30571\ArchiveManage\bin\Debug\MongoDBHelper.pdb
+F:\WORKW\C991E8568A9945C9BC0C43B408A30571\ArchiveManage\obj\x86\Debug\ArchiveManage.csprojResolveAssemblyReference.cache
+F:\WORKW\C991E8568A9945C9BC0C43B408A30571\ArchiveManage\obj\x86\Debug\ArchiveManage.exe
+F:\WORKW\C991E8568A9945C9BC0C43B408A30571\ArchiveManage\obj\x86\Debug\ArchiveManage.pdb
+F:\WORKW\C991E8568A9945C9BC0C43B408A30571\ArchiveManage\bin\Debug\ArchiveManage.exe.config
