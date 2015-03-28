@@ -46,11 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLL.cs" />
-    <Compile Include="DAL.cs" />
+    <Compile Include="DAL\FileDAL.cs" />
+    <Compile Include="DAL\UserDAL.cs" />
     <Compile Include="DBHelper.cs" />
-    <Compile Include="Model.cs" />
+    <Compile Include="BLL\FileBLL.cs" />
+    <Compile Include="Model\UserModel.cs" />
+    <Compile Include="Model\FileModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BLL\UserBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\UtilityHelper\Utility.csproj">

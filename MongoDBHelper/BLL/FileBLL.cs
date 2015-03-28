@@ -5,11 +5,7 @@ using System.Text;
 
 namespace Mayo.ArchiveManage.DB
 {
-    /// <summary>
-    /// 数据访问类
-    /// </summary>
-    class DAL
+    class FileBLL
     {
-
     }
 }

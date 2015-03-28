@@ -20,14 +20,21 @@ namespace Mayo.ArchiveManage.DB
     {
         public DBHelper()
         {
-            
+
         }
 
-        public void Test()
+        /// <summary>
+        /// 连接数据库
+        /// </summary>
+        /// <returns></returns>
+        public static MongoDatabase ConnectDB()
         {
             var client = new MongoClient(ConfigHelper.ConnectionString);
             var server = client.GetServer();
             var database = server.GetDatabase("AMDB");
+
+            return database;
         }
+
     }
 }
