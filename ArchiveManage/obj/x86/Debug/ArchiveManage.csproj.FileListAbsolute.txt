@@ -10,8 +10,6 @@ F:\WORKW\C991E8568A9945C9BC0C43B408A30571\ArchiveManage\bin\Debug\DB.dll
 F:\WORKW\C991E8568A9945C9BC0C43B408A30571\ArchiveManage\bin\Debug\DB.pdb
 F:\WORKW\C991E8568A9945C9BC0C43B408A30571\ArchiveManage\obj\x86\Debug\Mayo.ArchiveManage.MainForm.resources
 F:\WORKW\C991E8568A9945C9BC0C43B408A30571\ArchiveManage\bin\Debug\Utility.dll
-F:\WORKW\C991E8568A9945C9BC0C43B408A30571\ArchiveManage\bin\Debug\MongoDB.Driver.dll
-F:\WORKW\C991E8568A9945C9BC0C43B408A30571\ArchiveManage\bin\Debug\MongoDB.Bson.dll
 F:\WORKW\C991E8568A9945C9BC0C43B408A30571\ArchiveManage\bin\Debug\Utility.pdb
 F:\WORKW\C991E8568A9945C9BC0C43B408A30571\ArchiveManage\obj\x86\Debug\Mayo.ArchiveManage.AboutBox.resources
 F:\WORKW\C991E8568A9945C9BC0C43B408A30571\ArchiveManage\obj\x86\Debug\Mayo.ArchiveManage.ChangPassword.resources

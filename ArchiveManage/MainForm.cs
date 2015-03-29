@@ -16,7 +16,6 @@ namespace Mayo.ArchiveManage
         {
             InitializeComponent();
         }
-<<<<<<< HEAD
 
         /// <summary>
         /// 登录
@@ -79,38 +78,6 @@ namespace Mayo.ArchiveManage
             {
                 this.Text = "档案管理系统" + "(普通用户)";
             }
-=======
-       
-
-        private void 登陆ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LoginForm loginForm = new LoginForm();
-            loginForm.OperationChange += new LoginForm.ButtonClickHandler(ChangeToDownload);
-            loginForm.Show();
-        }
-
-        private void 关于ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AboutBox aboutBox = new AboutBox();
-            aboutBox.Show();
-        }
-
-        private void 修改密码ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ChangPassword changePasswordForm = new ChangPassword();
-            changePasswordForm.Show(); 
-        }
-        private void ChangeToDownload(object sender, EnterBtnClick args)
-        {
-            btnDownload.Visible = true;
-            btnDownload.Show();
-            MessageBox.Show("change download right");
-        }
-
-        private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
->>>>>>> 35f8baaad018fa8842f31a4b48ff4acfff2ab16b
         }
     }
 }
