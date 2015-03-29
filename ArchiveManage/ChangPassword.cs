@@ -16,6 +16,7 @@ namespace Mayo.ArchiveManage
             InitializeComponent();
         }
 
+<<<<<<< HEAD
         /// <summary>
         /// 确定
         /// </summary>
@@ -51,6 +52,24 @@ namespace Mayo.ArchiveManage
         /// 取消
         /// </summary>
         private void btnCancel_Click(object sender, EventArgs e)
+=======
+        private void enter_Click(object sender, EventArgs e)
+        {
+            if (current_password_label.Text=="password"&&new_password_label.Text==second_password_label.Text)
+            {
+                MessageBox.Show("密码修改成功");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("密码不一致");
+            }
+
+              
+        }
+
+        private void cancel_Click(object sender, EventArgs e)
+>>>>>>> 35f8baaad018fa8842f31a4b48ff4acfff2ab16b
         {
             this.Close();
         }
