@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过以下
 // 特性集控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("ArchiveManage")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("档案管理系统")]
+[assembly: AssemblyDescription("说明：本软件用于档案管理")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("嘛哟工作室")]
 [assembly: AssemblyProduct("ArchiveManage")]
-[assembly: AssemblyCopyright("Copyright ©  2015")]
+[assembly: AssemblyCopyright("Copyright ©2015 MaYo")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
