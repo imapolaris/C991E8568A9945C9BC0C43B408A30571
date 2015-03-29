@@ -6,9 +6,9 @@ using System.Text;
 namespace Mayo.ArchiveManage.DB
 {
     /// <summary>
-    /// 逻辑处理类
+    /// 用户 逻辑处理类
     /// </summary>
-    class UserBLL
+    public class UserBLL
     {
         UserDAL _dal = new UserDAL();
 
@@ -17,7 +17,7 @@ namespace Mayo.ArchiveManage.DB
         /// 增加一个用户
         /// </summary>
         /// <param name="user">用户</param>
-        public void Insert(User user)
+        public void Insert(UserModel user)
         {
             _dal.Insert(user);
         }
@@ -35,7 +35,7 @@ namespace Mayo.ArchiveManage.DB
         /// 查询用户信息
         /// </summary>
         /// <param name="strName">用户名</param>
-        public User Select(string strName)
+        public UserModel Select(string strName)
         {
             return _dal.Select(strName);
         }
@@ -44,14 +44,10 @@ namespace Mayo.ArchiveManage.DB
         /// 修改用户信息
         /// </summary>
         /// <param name="user">用户</param>
-        public void Update(User user)
+        public void Update(UserModel user)
         {
             _dal.Update(user);
         }
-        #endregion
-
-        #region ========文件========
-
         #endregion
     }
 }

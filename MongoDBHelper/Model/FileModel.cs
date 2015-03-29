@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Mayo.ArchiveManage.DB.Model
+namespace Mayo.ArchiveManage.DB
 {
     /// <summary>
     /// 文件实体类
     /// </summary>
-    class ArchiveFile
+    public class FileModel
     {
         string _fileName = null;
         long _size = 0;

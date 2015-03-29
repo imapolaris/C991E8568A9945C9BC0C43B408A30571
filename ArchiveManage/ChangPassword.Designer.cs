@@ -45,7 +45,7 @@
             this.current_password_label.Location = new System.Drawing.Point(42, 18);
             this.current_password_label.Name = "current_password_label";
             this.current_password_label.Size = new System.Drawing.Size(55, 13);
-            this.current_password_label.TabIndex = 0;
+            this.current_password_label.TabIndex = 6;
             this.current_password_label.Text = "旧密码：";
             // 
             // new_password_label
@@ -55,7 +55,7 @@
             this.new_password_label.Location = new System.Drawing.Point(42, 55);
             this.new_password_label.Name = "new_password_label";
             this.new_password_label.Size = new System.Drawing.Size(55, 13);
-            this.new_password_label.TabIndex = 1;
+            this.new_password_label.TabIndex = 7;
             this.new_password_label.Text = "新密码：";
             // 
             // label2
@@ -65,7 +65,7 @@
             this.label2.Location = new System.Drawing.Point(30, 92);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 13);
-            this.label2.TabIndex = 2;
+            this.label2.TabIndex = 8;
             this.label2.Text = "再输一次：";
             // 
             // txtOldPwd
@@ -74,7 +74,7 @@
             this.txtOldPwd.Name = "txtOldPwd";
             this.txtOldPwd.PasswordChar = '*';
             this.txtOldPwd.Size = new System.Drawing.Size(176, 21);
-            this.txtOldPwd.TabIndex = 3;
+            this.txtOldPwd.TabIndex = 0;
             // 
             // txtNewPwd
             // 
@@ -82,7 +82,7 @@
             this.txtNewPwd.Name = "txtNewPwd";
             this.txtNewPwd.PasswordChar = '*';
             this.txtNewPwd.Size = new System.Drawing.Size(176, 21);
-            this.txtNewPwd.TabIndex = 4;
+            this.txtNewPwd.TabIndex = 1;
             // 
             // txtNewPwd2
             // 
@@ -90,7 +90,7 @@
             this.txtNewPwd2.Name = "txtNewPwd2";
             this.txtNewPwd2.PasswordChar = '*';
             this.txtNewPwd2.Size = new System.Drawing.Size(176, 21);
-            this.txtNewPwd2.TabIndex = 5;
+            this.txtNewPwd2.TabIndex = 2;
             // 
             // btnCancel
             // 
@@ -98,7 +98,7 @@
             this.btnCancel.Location = new System.Drawing.Point(186, 144);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 30);
-            this.btnCancel.TabIndex = 6;
+            this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "取消";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -108,7 +108,7 @@
             this.btnOK.Location = new System.Drawing.Point(77, 144);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 30);
-            this.btnOK.TabIndex = 7;
+            this.btnOK.TabIndex = 3;
             this.btnOK.Text = "确定";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);

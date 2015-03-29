@@ -9,7 +9,7 @@ namespace Mayo.ArchiveManage.DB
     /// <summary>
     /// 用户实体类
     /// </summary>
-    class User
+    public class UserModel
     {
         string _userName = null;
         string _password = null;

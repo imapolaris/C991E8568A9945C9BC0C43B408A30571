@@ -8,7 +8,7 @@ namespace Mayo.ArchiveManage.Utility
     /// <summary>
     /// 档案文件分类
     /// </summary>
-    enum Category : int
+    public enum Category : int
     {
         // 通知公告
         Bulletin = 0,
