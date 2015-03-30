@@ -65,6 +65,11 @@
     <Content Include="Libs\MongoDB.Bson.dll" />
     <Content Include="Libs\MongoDB.Driver.dll" />
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Database\AMDB.0" />
+    <None Include="Database\AMDB.ns" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
