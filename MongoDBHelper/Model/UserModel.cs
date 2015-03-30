@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.IO;
 
+using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson;
+
 namespace Mayo.ArchiveManage.DB
 {
     /// <summary>
@@ -14,6 +17,15 @@ namespace Mayo.ArchiveManage.DB
         string _userName = null;
         string _password = null;
         bool _isAdmin = false;
+
+        /// <summary>
+        /// ObjectId
+        /// </summary>
+        public ObjectId _id
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// 用户名

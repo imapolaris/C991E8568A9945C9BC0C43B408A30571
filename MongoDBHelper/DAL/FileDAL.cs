@@ -3,8 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+
 using MongoDB.Bson;
 using MongoDB.Driver.Builders;
+using MongoDB.Driver.GridFS;
+using Mayo.ArchiveManage.Utility;
+using MongoDB.Driver;
+using System.Data;
 
 namespace Mayo.ArchiveManage.DB
 {
@@ -14,64 +19,80 @@ namespace Mayo.ArchiveManage.DB
     class FileDAL
     {
         #region ========文件========
-        /// <summary>
-        /// 增加一个文件
-        /// </summary>
-        /// <param name="user">文件</param>
-        public void Insert(FileModel file)
-        {
-        }
 
-        /// <summary>
-        /// 删除一个文件
-        /// </summary>
-        /// <param name="strName">文件名</param>
-        public void Delete(string strName)
-        {
-        }
-
-        /// <summary>
-        /// 查询文件信息
-        /// </summary>
-        /// <param name="strName">文件名</param>
-        public FileModel Select(string strName)
-        {
-            return null;
-        }
-
-        /// <summary>
-        /// 修改文件信息
-        /// </summary>
-        /// <param name="user">文件</param>
-        public void Update(FileModel file)
-        {
-        }
-
-        public void WriteFile(string fileName)
+        //获取文件列表
+        public MongoCursor<MongoGridFSFileInfo> Select(Category category, string strFileName)
         {
             var database = DBHelper.ConnectDB();
+            MongoGridFSSettings fsSetting = new MongoGridFSSettings() { Root = "Files" };
+            MongoGridFS fs = new MongoGridFS(database, fsSetting);
 
-            var newFileName = "D:\\new_Untitled.png";
-            using (var fs = new FileStream(fileName, FileMode.Open))
+            var collection = database.GetCollection("Files.files");
+
+            MongoCursor<MongoGridFSFileInfo> fileList = null;
+            if (string.IsNullOrEmpty(strFileName))
             {
-                var gridFsInfo = database.GridFS.Upload(fs, fileName);
-                var fileId = gridFsInfo.Id;
+                fileList = fs.Find(Query.EQ("metadata.CategoryID", (int)category));
+            }
+            else
+            {
+                fileList = fs.Find(Query.And(Query.EQ("metadata.CategoryID", (int)category), Query.Matches("filename", strFileName)));
+            }
 
-                ObjectId oid = new ObjectId(fileId.ToString());
-                var file = database.GridFS.FindOne(Query.EQ("_id", oid));
+            return fileList;
+        }
 
-                using (var stream = file.OpenRead())
+        //上传文件
+        public void Upload(Category category, string strFileName)
+        {
+            using (FileStream fs = new FileStream(strFileName, FileMode.Open, FileAccess.Read))
+            {
+                long nFileLen = fs.Length;
+
+                var database = DBHelper.ConnectDB();
+                MongoGridFSSettings fsSetting = new MongoGridFSSettings() { Root = "Files" };
+                MongoGridFS gfs = new MongoGridFS(database, fsSetting);
+
+                //通过Metadata 添加附加信息
+                MongoGridFSCreateOptions option = new MongoGridFSCreateOptions();
+                option.UploadDate = DateTime.Now;
+
+                BsonDocument doc = new BsonDocument();
+                doc.Add("CategoryID", (int)category);
+                doc.Add("ID", Guid.NewGuid().ToString());
+                option.Metadata = doc;
+
+                byte[] myData = new byte[nFileLen];
+                fs.Read(myData, 0, (int)nFileLen);
+                //创建文件，文件并存储数据
+                using (MongoGridFSStream gffs = gfs.Create(strFileName, option))
                 {
-                    var bytes = new byte[stream.Length];
-                    stream.Read(bytes, 0, (int)stream.Length);
-                    using (var newFs = new FileStream(newFileName, FileMode.Create))
-                    {
-                        newFs.Write(bytes, 0, bytes.Length);
-                    }
+                    gffs.Write(myData, 0, (int)nFileLen);
+                    gffs.Close();
                 }
             }
         }
 
+        //删除文件
+        public void Delete(string _id)
+        {
+            var database = DBHelper.ConnectDB();
+            MongoGridFSSettings fsSetting = new MongoGridFSSettings() { Root = "Files" };
+            MongoGridFS fs = new MongoGridFS(database, fsSetting);
+
+            fs.Delete(Query.EQ("metadata.ID", _id));
+        }
+
+        //下载文件
+        public void Download(string _id, string strFileName)
+        {
+            var database = DBHelper.ConnectDB();
+            MongoGridFSSettings fsSetting = new MongoGridFSSettings() { Root = "Files" };
+            MongoGridFS fs = new MongoGridFS(database, fsSetting);
+            MongoGridFSFileInfo gfInfo = new MongoGridFSFileInfo(fs, strFileName);
+
+            fs.Download(strFileName);
+        }
         #endregion
     }
 }

@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.管理员ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.登陆ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,6 +59,8 @@
             this.文件名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.大小 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.创建时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblCategory = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFiles)).BeginInit();
             this.panel1.SuspendLayout();
@@ -135,19 +137,20 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvFiles.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFiles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFiles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvFiles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFiles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.文件名,
             this.大小,
-            this.创建时间});
+            this.创建时间,
+            this.ID});
             this.dgvFiles.Location = new System.Drawing.Point(0, 97);
             this.dgvFiles.MultiSelect = false;
             this.dgvFiles.Name = "dgvFiles";
@@ -162,6 +165,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.lblCategory);
             this.panel1.Controls.Add(this.btnQuery);
             this.panel1.Controls.Add(this.txtFileName);
             this.panel1.Controls.Add(this.label1);
@@ -234,7 +238,7 @@
             this.btnDelete.Enabled = false;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnDelete.ForeColor = System.Drawing.Color.Black;
-            this.btnDelete.Location = new System.Drawing.Point(192, 414);
+            this.btnDelete.Location = new System.Drawing.Point(197, 413);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 33);
             this.btnDelete.TabIndex = 9;
@@ -299,9 +303,9 @@
             // 文件名
             // 
             this.文件名.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.文件名.DataPropertyName = "文件名";
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.文件名.DefaultCellStyle = dataGridViewCellStyle2;
+            this.文件名.DataPropertyName = "FileName";
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            this.文件名.DefaultCellStyle = dataGridViewCellStyle6;
             this.文件名.HeaderText = "文件名";
             this.文件名.Name = "文件名";
             this.文件名.ReadOnly = true;
@@ -309,9 +313,9 @@
             // 大小
             // 
             this.大小.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.大小.DataPropertyName = "大小";
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            this.大小.DefaultCellStyle = dataGridViewCellStyle3;
+            this.大小.DataPropertyName = "Size";
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            this.大小.DefaultCellStyle = dataGridViewCellStyle7;
             this.大小.HeaderText = "大小";
             this.大小.Name = "大小";
             this.大小.ReadOnly = true;
@@ -319,12 +323,33 @@
             // 创建时间
             // 
             this.创建时间.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.创建时间.DataPropertyName = "创建时间";
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.创建时间.DefaultCellStyle = dataGridViewCellStyle4;
+            this.创建时间.DataPropertyName = "CreateDate";
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            this.创建时间.DefaultCellStyle = dataGridViewCellStyle8;
             this.创建时间.HeaderText = "创建时间";
             this.创建时间.Name = "创建时间";
             this.创建时间.ReadOnly = true;
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            // 
+            // lblCategory
+            // 
+            this.lblCategory.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblCategory.AutoSize = true;
+            this.lblCategory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategory.ForeColor = System.Drawing.Color.Red;
+            this.lblCategory.Location = new System.Drawing.Point(395, 6);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(92, 26);
+            this.lblCategory.TabIndex = 12;
+            this.lblCategory.Text = "通知公告";
             // 
             // MainForm
             // 
@@ -388,6 +413,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 文件名;
         private System.Windows.Forms.DataGridViewTextBoxColumn 大小;
         private System.Windows.Forms.DataGridViewTextBoxColumn 创建时间;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.Label lblCategory;
     }
 }
 

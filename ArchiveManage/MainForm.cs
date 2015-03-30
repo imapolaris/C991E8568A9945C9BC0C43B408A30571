@@ -9,12 +9,14 @@ using System.Windows.Forms;
 
 using Mayo.ArchiveManage.DB;
 using Mayo.ArchiveManage.Utility;
+using System.IO;
 
 namespace Mayo.ArchiveManage
 {
     public partial class MainForm : Form
     {
         //private DataTable dt = null; // 数据
+        private Category _curCategory = Category.Bulletin;
        
         public MainForm()
         {
@@ -99,6 +101,8 @@ namespace Mayo.ArchiveManage
         /// </summary>
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
+            this.lblCategory.Text = "通知公告";
+            this._curCategory = Category.Bulletin;
             BindingData(Category.Bulletin);
         }
 
@@ -107,6 +111,8 @@ namespace Mayo.ArchiveManage
         /// </summary>
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
+            this.lblCategory.Text = "学院快讯";
+            this._curCategory = Category.CollegeNews;
             BindingData(Category.CollegeNews);
         }
 
@@ -115,6 +121,8 @@ namespace Mayo.ArchiveManage
         /// </summary>
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
+            this.lblCategory.Text = "教务通知";
+            this._curCategory = Category.JWCNotice;
             BindingData(Category.JWCNotice);
         }
 
@@ -123,6 +131,8 @@ namespace Mayo.ArchiveManage
         /// </summary>
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
+            this.lblCategory.Text = "留言板";
+            this._curCategory = Category.MessageBoard;
             BindingData(Category.MessageBoard);
         }
         #endregion
@@ -153,7 +163,12 @@ namespace Mayo.ArchiveManage
 
             if (DialogResult.OK == ofg.ShowDialog())
             {
-                MessageBox.Show("Test");
+                string strFileName = ofg.FileName;
+                
+                FileBLL bll = new FileBLL();
+                bll.Upload(this._curCategory, strFileName);
+
+                BindingData(this._curCategory);
             }
         }
 
@@ -168,9 +183,19 @@ namespace Mayo.ArchiveManage
                 return;
             }
 
-            // 在数据库中查询文件
-            FileBLL bll = new FileBLL();
-            FileModel model = bll.Select("");
+            SaveFileDialog sfg = new SaveFileDialog();
+
+            sfg.Title = "下载文件";
+            sfg.Filter = "所有文件(*.*)|*.*";
+
+            if (DialogResult.OK == sfg.ShowDialog())
+            {
+                string fileName = sfg.FileName;
+
+                // 在数据库中查询文件
+                FileBLL bll = new FileBLL();
+                
+            }
         }
 
         /// <summary>
@@ -184,9 +209,12 @@ namespace Mayo.ArchiveManage
                 return;
             }
 
+            string _id = this.dgvFiles.SelectedRows[0].Cells[3].Value.ToString();
             // 在数据库中把文件删除
             FileBLL bll = new FileBLL();
-            bll.Delete("");
+            bll.Delete(_id);
+
+            BindingData(this._curCategory);
         }
         #endregion
 
@@ -196,19 +224,9 @@ namespace Mayo.ArchiveManage
         /// </summary>
         private void BindingData(Category category)
         {
-            DataTable dt = new DataTable();
+            FileBLL bll = new FileBLL();
 
-            DataColumn column = new DataColumn("文件名", typeof(string));
-            dt.Columns.Add(column);
-
-            column = new DataColumn("大小", typeof(string));
-            dt.Columns.Add(column);
-
-            column = new DataColumn("创建时间", typeof(DateTime));
-            dt.Columns.Add(column);
-
-            DataRow row = dt.Rows.Add();
-            row[0] = "通知.txt"; row[1] = "1KB"; row[2] = "2015-03-29";
+            DataTable dt = bll.Select(category);
 
             this.dgvFiles.DataSource = dt.DefaultView;
         }
@@ -219,7 +237,11 @@ namespace Mayo.ArchiveManage
         /// <param name="strFileName">文件名</param>
         private void BindingData(string strFileName)
         {
+            FileBLL bll = new FileBLL();
 
+            DataTable dt = bll.Select(_curCategory, strFileName);
+
+            this.dgvFiles.DataSource = dt.DefaultView;
         }
         #endregion
     }

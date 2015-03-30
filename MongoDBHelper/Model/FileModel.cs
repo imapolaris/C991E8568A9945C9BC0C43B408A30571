@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using MongoDB.Bson;
+
 namespace Mayo.ArchiveManage.DB
 {
     /// <summary>
@@ -10,9 +12,28 @@ namespace Mayo.ArchiveManage.DB
     /// </summary>
     public class FileModel
     {
+        int _categoryId = 0;
         string _fileName = null;
         long _size = 0;
         DateTime _createDate;
+
+        /// <summary>
+        /// ObjectId
+        /// </summary>
+        public ObjectId _id
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 分类ID
+        /// </summary>
+        public int CategoryID
+        {
+            get { return _categoryId; }
+            set { _categoryId = value; }
+        }
 
         /// <summary>
         /// 文件名

@@ -48,6 +48,17 @@ namespace Mayo.ArchiveManage.DB
         {
             _dal.Update(user);
         }
+
+        /// <summary>
+        /// 用户名和密码是否正确
+        /// </summary>
+        /// <param name="strUserName">用户名</param>
+        /// <param name="strPwd">密码</param>
+        /// <returns></returns>
+        public bool IsValid(string strUserName, string strPwd)
+        {
+            return _dal.IsValid(strUserName, strPwd);
+        }
         #endregion
     }
 }

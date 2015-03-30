@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Mayo.ArchiveManage.DB;
 
 namespace Mayo.ArchiveManage
 {
@@ -34,7 +35,7 @@ namespace Mayo.ArchiveManage
         /// </summary>
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if(txtUserName.Text=="admin"&& txtPwd.Text=="123")
+            if(ValidateUser(this.txtUserName.Text, this.txtPwd.Text))
             {
                 // 触发事件， 传递自定义参数
                 OnEnterBtnclick(this, new EnterBtnClick());
@@ -53,6 +54,18 @@ namespace Mayo.ArchiveManage
         private void btnCancel_Click(object sender, EventArgs e)
         {          
             this.Close();
+        }
+
+        /// <summary>
+        /// 验证用户名是否正确
+        /// </summary>
+        /// <param name="strUserName">用户名</param>
+        /// <param name="strPwd">密码</param>
+        /// <returns></returns>
+        private bool ValidateUser(string strUserName, string strPwd)
+        {
+            UserBLL bll = new UserBLL();
+            return bll.IsValid(strUserName, strPwd);
         }
     }
 }
