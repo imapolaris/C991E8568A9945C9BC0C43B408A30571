@@ -89,9 +89,18 @@ namespace Mayo.ArchiveManage.DB
             var database = DBHelper.ConnectDB();
             MongoGridFSSettings fsSetting = new MongoGridFSSettings() { Root = "Files" };
             MongoGridFS fs = new MongoGridFS(database, fsSetting);
-            MongoGridFSFileInfo gfInfo = new MongoGridFSFileInfo(fs, strFileName);
 
-            fs.Download(strFileName);
+            MongoGridFSFileInfo gfsInfo = fs.FindOne(Query.EQ("metadata.ID", _id));
+
+            MongoGridFSStream gfs = gfsInfo.OpenRead();
+            byte[] bytes = new byte[gfs.Length];
+            gfs.Read(bytes, 0, bytes.Length);
+
+            FileStream fst = new FileStream(strFileName, FileMode.OpenOrCreate, FileAccess.Write);
+            fst.Write(bytes, 0, bytes.Length);
+
+            fst.Flush();
+            fst.Close();
         }
         #endregion
     }

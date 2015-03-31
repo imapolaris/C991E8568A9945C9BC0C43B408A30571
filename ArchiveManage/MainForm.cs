@@ -82,7 +82,7 @@ namespace Mayo.ArchiveManage
         private void SetButtonEnable(bool bEnable)
         {
             this.btnDelete.Enabled = bEnable;
-            this.btnDownload.Enabled = bEnable;
+            //this.btnDownload.Enabled = bEnable;
             this.btnUpload.Enabled = bEnable;
 
             if (bEnable == true)
@@ -194,7 +194,7 @@ namespace Mayo.ArchiveManage
 
                 // 在数据库中查询文件
                 FileBLL bll = new FileBLL();
-                
+                bll.Download(this.dgvFiles.SelectedRows[0].Cells[3].Value.ToString(), fileName);
             }
         }
 

@@ -66,6 +66,12 @@ namespace Mayo.ArchiveManage.DB
 
             return dt;
         }
+
+        //下载文件
+        public void Download(string _id, string strFileName)
+        {
+            _dal.Download(_id, strFileName);
+        }
         #endregion
     }
 }
